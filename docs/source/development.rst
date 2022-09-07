@@ -44,7 +44,11 @@ A datamodule looks like this:
             # called on every process in DDP
 
 They are actually hook functions, so you can simply overwrite them as you like.
-There should be some customed functions for preprocessing which can be shared in several tasks. For example, the procedures for tokenization and padding of different sequence labeling tasks remain consistent. It will be good if you define them as an utility in [src/utils](src/utils), which may facilitates others' work.
+There should be some customed functions for preprocessing which can be shared
+in several tasks.
+For example, the procedures for tokenization and padding of different sequence
+labeling tasks remain consistent. It will be good if you define them as an utility
+in ``src/utils``, which may facilitate others' work.
 
 Then, create a ``.yaml`` in ``configs/datamodule`` to instantiate your datamodule.
 A data config file looks like this:
@@ -64,7 +68,7 @@ A data config file looks like this:
 
 To add a model
 """"""""""""""
-All the components of a model should be included in ``src/models/components``, including the model structure or a customed tokenizer and so on.
+All the components of a model should be included in ``src/models/components``, including model structure, tokenizers and so on.
 
 Next, define the logic of training, validation and test for your model in a **LightningModule**.
 Same as a LightningDataModule, a **LightningModule** provides some hook functions to simplify the procedure.
